@@ -1,0 +1,62 @@
+set nocompatible 
+"source $VIMRUNTIME/mswin.vim 
+"behave mswin 
+
+" plugins 
+" SuperTab 
+" MatchIt 
+
+" file storage 
+set backupdir=C:\\tmp\\vim 
+set directory=C:\\tmp\\vim 
+
+" visual settings 
+colorscheme desert  " dark GUI 
+syntax on           " syntax highlighting 
+set number          " display line numbers 
+set ruler           " display line/column number on status bar 
+set backspace=indent,eol,start " delete over line break, indent, start of insert mode 
+
+" indenting 
+set autoindent      " sets autoindenting 
+filetype indent on  " indenting is performed based on filetype definitions 
+set shiftwidth=4    " number of spaces used for indentation 
+set tabstop=4       " number of spaces used for tab key 
+set expandtab       " spaces are inserted instead of tab 
+
+" filetypes 
+filetype on 
+filetype plugin on 
+set omnifunc=syntaxcomplete#Complete            " autocompletion of syntax files 
+let g:SuperTabDefaultCompletionType = "context" " autocompletion with tab using SuperTab plugin 
+
+" searching 
+set ignorecase      " case insensitive searching 
+set smartcase       " patterns with uppercase are searched case sensitive, others case insensitive 
+set hlsearch        " highlights searched patterns 
+set incsearch       " incrementaly moves cursor to searched patterns 
+set infercase       " infer the case of autocompleted word 
+
+" other 
+set showmatch       " show matching bracket 
+set nowrap          " do not wrap lines 
+
+" window size 
+set lines=40 
+set columns=160 
+
+" mapping 
+noremap qy "*y 
+noremap qp "*p 
+noremap qP "*P 
+"noremap qf :v/dbg/s/\<\(null\\|commit\\|rollback\\|if\\|then\\|else\\|elsif\\|end\\|loop\\|case\\|select\\|into\\|update\\|set\\|delete\\|where\)\>/\U\1/g 
+cmap <C-V> <C-R>+ 
+
+" ruseni koncovych lomitek v sqlfilech 
+"augroup perforce 
+"    autocmd BufWritePre c:/ts/*/*.sql :v/dbg/s/\<\(null\\|commit\\|rollback\\|if\\|then\\|else\\|elsif\\|end\\|loop\\|case\\|select\\|into\\|from\\|update\\|set\\|delete\\|where\)\>/\U\1/g 
+"    autocmd BufWritePre c:/ts/*/*.sql :%s/ \+$//e 
+"    autocmd BufWritePre c:/ts/*/*.sql :$g/^\/$/d 
+"augroup END 
+"set nowrapscan pøi hledání se automaticky necyklí (tj. nepokraèuje se automaticky hledáním od zaèátku), 
+            "problém je, že hledání, které zaèíná uprostøed dokumentu neuvažuje výskyty hledaného výrazu pøed kurzoremcan 
